@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP Casamento: Lydia Martin e Dylan</title>
+    <link href="https://fonts.cdnfonts.com/css/dourcha" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Confirmação de Presença</h1>
+        <h2>Casamento de Lydia Martin & Dylan</h2>
+        <p>Por favor, preencha o formulário abaixo para nos informar se você poderá comparecer à nossa celebração.</p>
+        
+        <form id="rsvpForm" class="rsvp-form">
+            
+            <fieldset>
+                <legend>Seu Nome e Contato</legend>
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo do Convidado Principal:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail para Contato:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Confirmação de Presença</legend>
+                
+                <div class="form-group radio-group">
+                    <p>Você irá comparecer ao casamento?</p>
+                    <input type="radio" id="presente-sim" name="presenca" value="Sim" required>
+                    <label for="presente-sim">Sim, terei o prazer de comparecer!</label><br>
+                    
+                    <input type="radio" id="presente-nao" name="presenca" value="Não">
+                    <label for="presente-nao">Não poderei comparecer.</label>
+                </div>
+            </fieldset>
+            
+            <fieldset id="detalhes-adicionais">
+                <legend>Detalhes Adicionais</legend>
+                
+                <div class="form-group">
+                    <label for="acompanhantes">Número de Acompanhantes (adultos e crianças) além do convidado principal (Se nenhum, coloque 0):</label>
+                    <input type="number" id="acompanhantes" name="acompanhantes" min="0" value="0">
+                    <small>Por favor, inclua apenas as pessoas que foram formalmente convidadas.</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="restricao">Restrição Alimentar ou Alergia (Se nenhuma, deixe em branco):</label>
+                    <input type="text" id="restricao" name="restricao">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Deixe uma mensagem para os noivos (opcional):</label>
+                    <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="button" class="submit-button" onclick="openReportModal()">Revisar e Enviar</button>
+            <p class="nota">O prazo para confirmação é **25/12/2025**.</p>
+        </form>
+    </div>
+
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeReportModal()">&times;</span>
+            <h3>Confirme Seus Dados</h3>
+            <div id="reportData" class="report-details">
+                </div>
+            
+            <p class="warning-text">Por favor, revise suas informações. Após confirmar, a presença será registrada.</p>
+
+            <div class="modal-actions">
+                <button type="button" class="back-button" onclick="closeReportModal()">Voltar para Edição</button>
+                <button type="submit" class="confirm-button" onclick="submitForm()">Confirmar e Enviar</button>
+            </div>
+        </div>
+    </div>
+    
+    <section class="info-section traje">
+        <h3> Traje Sugerido</h3>
+        <div class="traje-box">
+            <h4>Traje: Esporte Fino / Passeio Completo</h4>
+            <p><strong>Para Homens:</strong> Terno sem gravata, Blazer e calça social, Camisa social.</p>
+            <p><strong>Para Mulheres:</strong> Vestido longo ou midi, Macacão elegante. Evitar as cores branco/off-white.</p>
+        </div>
+        <p class="small-text">Lembre-se de considerar o clima e o conforto.</p>
+    </section>
+
+    <section class="info-section mapa">
+        <h3>Local da Cerimônia e Recepção</h3>
+        <p>A celebração será realizada no **Constance Halaveli Maldives**, em Maldivas.</p>
+        <p>Endereço: Constance Halaveli Maldives, Halaveli Island, Maldivas</p>
+        <div class="mapa-placeholder">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15754.764835848261!2d72.91572015!3d4.0375623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b47f677d2f9540b%3A0xf657e296e8388410!2sConstance%20Halaveli%20Maldives!5e0!3m2!1spt-BR!2sbr!4v1701956400000!5m2!1spt-BR!2sbr"
+        width="100%" 
+        height="100%" 
+        style="border:0; border-radius: 5px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+    </section>
+
+    <section class="info-section presentes">
+        <h3>Lista de Presentes</h3>
+        <p>A sua presença é o nosso maior presente! Mas, se desejar nos presentear, deixamos algumas sugestões:</p>
+        <div class="lista-opcoes">
+           <a href="https://www.minussihome.com.br/" target="_blank" class="presente-link">Loja de Decoração</a>
+            <a href="https://planejandomeucasamento.com.br/listas/lista-de-casamento-pronta/" target="_blank" class="presente-link">Lista Online</a>
+            <a href="[Link para Conta Bancária/PIX]" target="_blank" class="presente-link">Presente em Dinheiro (PIX)</a>
+        </div>
+        </div>
+        <p class="small-text">Basta clicar na opção desejada para ser redirecionado.</p>
+    </section>
+
+    <script>
+        // === FUNÇÕES JAVASCRIPT ===
+        
+        const detailsSection = document.getElementById('detalhes-adicionais');
+        const radioSim = document.getElementById('presente-sim');
+        const radioNao = document.getElementById('presente-nao');
+
+        // Lógica para mostrar/esconder campos adicionais
+        detailsSection.style.display = 'none';
+
+        radioSim.addEventListener('change', () => {
+            detailsSection.style.display = 'block';
+            if (document.getElementById('acompanhantes').value === '0') {
+                 document.getElementById('acompanhantes').value = '1';
+            }
+        });
+
+        radioNao.addEventListener('change', () => {
+            detailsSection.style.display = 'none';
+        });
+
+        // 1. Abrir Modal de Relatório
+        function openReportModal() {
+            const form = document.getElementById('rsvpForm');
+            
+            if (!form.checkValidity()) {
+                form.reportValidity(); 
+                return;
+            }
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const presenca = document.querySelector('input[name="presenca"]:checked').value;
+            const acompanhantes = document.getElementById('acompanhantes').value;
+            const restricao = document.getElementById('restricao').value || 'Nenhuma';
+            const mensagem = document.getElementById('mensagem').value || 'Nenhuma mensagem.';
+
+            let reportHTML = `
+                <div class="report-item"><strong>Convidado Principal:</strong> <span>${nome}</span></div>
+                <div class="report-item"><strong>E-mail:</strong> <span>${email}</span></div>
+                <div class="report-item presenca-status"><strong>Presença:</strong> <span>${presenca}</span></div>
+            `;
+
+            if (presenca === 'Sim') {
+                reportHTML += `
+                    <hr>
+                    <div class="report-item"><strong>Acompanhantes:</strong> <span>${acompanhantes}</span></div>
+                    <div class="report-item"><strong>Restrição Alimentar:</strong> <span>${restricao}</span></div>
+                    <div class="report-item"><strong>Mensagem para os Noivos:</strong> <span>${mensagem.replace(/\n/g, '<br>')}</span></div>
+                `;
+            }
+
+            document.getElementById('reportData').innerHTML = reportHTML;
+            document.getElementById('reportModal').style.display = 'flex';
+        }
+
+        // 2. Fechar Modal de Relatório
+        function closeReportModal() {
+            document.getElementById('reportModal').style.display = 'none';
+        }
+
+        // 3. Submeter Formulário
+        function submitForm() {
+            closeReportModal();
+            // Simulação de envio (redireciona para a página de sucesso)
+            window.location.href = 'success.html'; 
+        }
+        
+        // Fechar o modal clicando fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('reportModal');
+            if (event.target == modal) {
+                closeReportModal();
+            }
+        }
+    </script>
+</body>
+</html>
